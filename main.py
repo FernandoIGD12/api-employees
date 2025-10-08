@@ -2,10 +2,8 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware # https://fastapi.tiangolo.com/tutorial/cors/#use-corsmiddleware
 import mysql.connector
 import schemas
-import uvicorn
 
 app = FastAPI()
-uvicorn.run(app, host="0.0.0.0", port=8000)
 origins = ['*'] # Permite que el Api Rest se consuma desde cualquier origen
 
 app.add_middleware(
@@ -90,3 +88,4 @@ def delete_employee(id: int):
     mydb.close()
 
     return {"message": "Employee deleted successfully"}
+
